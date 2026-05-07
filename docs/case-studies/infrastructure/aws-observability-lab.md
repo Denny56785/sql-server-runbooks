@@ -72,7 +72,7 @@ AWS EC2 (Ubuntu)
 
 ### Phase 1 – Control Plane Setup
 
-- [View Phase 1](../../infrastructure-lab/phase-01-control-plane-setup.md)
+[View Phase 1](../../case-studies/infrastructure-lab/phase-01-control-plane-setup.md)
 
 * Local control environment configured
 * Terraform, Ansible, and AWS CLI installed
@@ -82,7 +82,7 @@ AWS EC2 (Ubuntu)
 
 ### Phase 2 – Infrastructure Provisioning (Terraform)
 
-- [View Phase 2](../../infrastructure-lab/phase-02-terraform-infrastructure.md)
+[View Phase 2](../../case-studies/infrastructure-lab/phase-02-terraform-infrastructure.md)
 
 * EC2 instance provisioned via Terraform
 * Security groups configured (SSH, Grafana, Prometheus)
@@ -92,7 +92,7 @@ AWS EC2 (Ubuntu)
 
 ### Phase 3 – Configuration Management (Ansible)
 
-- [View Phase 3](../../infrastructure-lab/phase-03-ansible-configuration.md)
+[View Phase 3](../../case-studies/infrastructure-lab/phase-03-ansible-configuration.md)
 
 * Docker and dependencies installed via Ansible
 * Remote host prepared for workload deployment
@@ -102,7 +102,7 @@ AWS EC2 (Ubuntu)
 
 ### Phase 4 – Workload Deployment, Monitoring & Automation
 
-- [View Phase 4](../../infrastructure-lab/phase-04-workload-monitoring-automation.md)
+[View Phase 4](../../case-studies/infrastructure-lab/phase-04-workload-monitoring-automation.md)
 
 * Docker Compose stack deployed:
 
