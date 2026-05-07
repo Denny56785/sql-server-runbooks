@@ -1,275 +1,219 @@
-# 🚀 SQL Server Migration Strategy & Execution System
+# SQL Server Upgrade Strategy & Controlled Migration Execution
 
-## Controlled Upgrade Approach (SQL Server 2017 → 2022)
+## Overview
 
----
+This case study outlines the planning and execution of a controlled SQL Server 2017 → 2022 upgrade strategy designed to reduce operational risk, isolate performance regressions, and improve post-upgrade visibility.
 
-## 📖 Overview
-
-The system separates engine-level and query processing changes to allow independent validation, monitoring, and rollback at each stage:
-
-- **Engine-level changes** (SQL Server upgrade)
-- **Query processing changes** (compatibility level / optimizer behavior)
-
-This approach was validated in a real-world SQL Server 2017 → 2022 upgrade.
+Rather than treating the upgrade as a single event, the process separated infrastructure-level changes from query-processing behavior changes, allowing each phase to be independently validated and rolled back if necessary.
 
 ---
 
-## ⚠️ Problem
+## Environment
 
-SQL Server upgrades are often treated as a single-step process:
-
-> Install → Reboot → Done
-
-### Key Challenges
-
-* No baseline for performance comparison
-* Engine and optimizer changes occur simultaneously
-* Limited visibility into post-upgrade behavior
-* Rollback requires full system restore
+- SQL Server 2017 → SQL Server 2022
+- Production SQL Server environment
+- Replication-enabled workloads
+- SQL Server Agent jobs and scheduled maintenance
+- Query Store used for performance analysis and validation
+- Virtualized infrastructure with snapshot capability
 
 ---
 
-### Real-World Impact
+## Problem
 
-In production environments, this approach can lead to:
+Traditional SQL Server upgrades are frequently treated as a single-step process:
 
-* Query performance regressions
-* Plan instability due to optimizer changes
-* Replication or job failures
-* Increased incident volume immediately after upgrade
+> Install → Restart → Production Ready
 
-Upgrades introduce risk not just at the system level—but at the **query execution level**, where issues are harder to isolate.
+This approach creates several operational risks:
 
----
-
-## 💡 Solution Approach
-
-The migration process is divided into **two distinct phases** to isolate risk and improve control.
-
-### Core Concept
-
-> Separate infrastructure changes from query behavior changes
+- Engine-level and optimizer-level changes occur simultaneously
+- Query regressions become difficult to isolate
+- Limited visibility into post-upgrade behavior
+- Rollback often requires full system restoration
 
 ---
 
-### System Behavior
+## Impact
 
-* Capture full system baseline prior to upgrade
-* Perform engine upgrade without altering query execution behavior
-* Introduce optimizer changes incrementally using compatibility levels
-* Validate performance using Query Store comparisons
-* Provide rollback mechanisms at each stage
+Poorly controlled upgrades can introduce:
 
----
+- Query performance regressions
+- Execution plan instability
+- Replication interruptions
+- SQL Agent job failures
+- Increased operational incidents immediately after migration
 
-## 🧱 Architecture
+The largest challenge is often not the SQL Server engine upgrade itself, but identifying whether post-upgrade issues originate from:
 
-```text
-Pre-Migration Baseline
-        ↓
-VM Snapshot / Backup
-        ↓
-SQL Server Engine Upgrade
-        ↓
-Post-Upgrade Validation
-        ↓
-Query Store Baseline Capture
-        ↓
-Compatibility Level Upgrade (Per Database)
-        ↓
-Performance Validation
-        ↓
-Rollback (If Required)
-```
+- infrastructure changes,
+- optimizer behavior changes,
+- or workload-specific query regressions.
 
 ---
 
-## 🔧 Key Components
+## Investigation
+
+### Key Observation
+
+Infrastructure upgrades and compatibility-level changes introduce two separate categories of risk:
+
+1. SQL Server engine/platform changes
+2. Query optimizer and execution-plan behavior changes
+
+When both occur simultaneously, troubleshooting becomes significantly more difficult.
+
+### Approach
+
+The migration strategy focused on separating these concerns into controlled phases:
+
+- Preserve existing query behavior during the engine upgrade
+- Validate platform stability first
+- Introduce optimizer changes incrementally afterward
+- Use Query Store to compare workload behavior before and after changes
+
+---
+
+## Solution
 
 ### 1. Pre-Migration Baseline Capture
 
-Captures system state prior to upgrade:
+Collected environment and workload baselines prior to migration:
 
-* SQL Server version and configuration
-* Database inventory and compatibility levels
-* SQL Agent job status and history
-* Replication configuration (if applicable)
+- SQL Server configuration
+- Database inventory
+- Compatibility levels
+- SQL Agent job status
+- Replication configuration
+- Existing workload behavior
 
-**Purpose:**
-
-* Establish comparison point for validation
-* Detect configuration drift post-upgrade
-
----
-
-### 2. VM Snapshot / Backup Strategy
-
-A full system snapshot is taken immediately before the engine upgrade.
-
-**Purpose:**
-
-* Enables full rollback of system and binaries
-* Protects against failed or incomplete installations
+This established a comparison point for post-upgrade validation.
 
 ---
 
-### 3. SQL Server Engine Upgrade
+### 2. Snapshot & Rollback Planning
 
-Performs in-place upgrade to SQL Server 2022.
+A full VM snapshot was taken immediately prior to the engine upgrade.
 
-**Process:**
+This provided:
 
-* Execute upgrade installer
-* Apply latest Cumulative Update
-* Restart system
-* Validate version and services
-
-**Key Design Decision:**
-
-* Compatibility levels remain unchanged
-
-👉 This ensures query behavior remains stable during this phase
+- Fast rollback capability
+- Protection against failed installations
+- Recovery path for unexpected platform instability
 
 ---
 
-### 4. Post-Upgrade Validation
+### 3. Engine Upgrade Phase
 
-Validates system health after engine upgrade:
+Performed in-place upgrade from SQL Server 2017 → 2022.
 
-* SQL Server and Agent services running
-* Job execution status verified
-* Error logs reviewed
-* Replication jobs validated
+Key operational decision:
 
----
+> Database compatibility levels were intentionally left unchanged.
 
-### 5. Query Store Baseline
+This preserved existing query-processing behavior while validating platform stability independently.
 
-Query Store is enabled (if not already) and used to capture performance metrics:
+Post-upgrade validation included:
 
-* Query duration
-* CPU usage
-* Logical reads
-* Execution counts
-
-**Purpose:**
-
-* Establish performance baseline prior to optimizer changes
+- SQL Server service validation
+- SQL Agent verification
+- Replication validation
+- Error log review
+- Operational health checks
 
 ---
 
-### 6. Compatibility Level Upgrade
+### 4. Query Store Baseline Validation
 
-Databases are upgraded **one at a time** to compatibility level 160.
+Query Store was used to establish workload baselines before introducing compatibility-level changes.
 
-```sql
-ALTER DATABASE YourDB 
-SET COMPATIBILITY_LEVEL = 160;
-```
+Metrics reviewed included:
 
-**Purpose:**
+- Query duration
+- CPU utilization
+- Logical reads
+- Execution counts
+- Plan stability
 
-* Introduce new optimizer features in a controlled manner
-* Isolate performance regressions per database
-
----
-
-### 7. Performance Validation
-
-Post-change validation includes:
-
-* Query Store comparison (before vs after)
-* Monitoring query duration and resource usage
-* Identifying plan regressions
+This enabled targeted before/after comparisons during rollout.
 
 ---
 
-### 8. Rollback Mechanisms
+### 5. Controlled Compatibility-Level Rollout
 
-#### Engine Upgrade Rollback
+Compatibility level upgrades were performed incrementally on a per-database basis rather than globally.
 
-* Revert VM snapshot
-* Restores full system state
+This approach:
 
-#### Compatibility Level Rollback
-
-```sql
-ALTER DATABASE YourDB 
-SET COMPATIBILITY_LEVEL = <previous_level>;
-```
-
-* Immediate and targeted rollback
-* No database restore required
+- Reduced blast radius
+- Simplified troubleshooting
+- Allowed targeted rollback
+- Isolated workload-specific regressions
 
 ---
 
-## 🧠 Key Design Decisions
+### 6. Performance Validation & Rollback
 
-### ✔ Two-Phase Migration Model
+Post-change monitoring focused on:
 
-* Separates infrastructure and performance risk
-* Simplifies troubleshooting and validation
+- Query performance comparison
+- Regression detection
+- Resource utilization
+- Execution plan changes
 
-### ✔ Query Store Baseline Usage
-
-* Enables data-driven performance comparison
-* Reduces guesswork in regression analysis
-
-### ✔ Incremental Compatibility Changes
-
-* Limits blast radius of optimizer changes
-* Allows targeted rollback
-
-### ✔ Snapshot-Based Rollback
-
-* Provides fast recovery for failed upgrades
+If regressions were identified, compatibility levels could be reverted immediately without requiring full system rollback.
 
 ---
 
-## ⚙️ Operational Considerations
+## Operationalization
 
-* Do **not** change compatibility levels for system databases
-  (master, msdb, model, tempdb, distribution, SSRS databases)
+The migration process was standardized into a repeatable operational model emphasizing:
 
-* Perform upgrades in lower environments first
+- Controlled rollout sequencing
+- Baseline-driven validation
+- Incremental change management
+- Snapshot-based rollback planning
+- Query Store-driven performance analysis
 
-* Monitor systems for 3–4 days post-change
-
-* Threshold-based monitoring can help identify regressions early
-
----
-
-## 📊 Outcome
-
-Using this structured approach:
-
-* SQL Server successfully upgraded from 2017 → 2022
-* No production instability observed during engine upgrade
-* Compatibility changes performed in a controlled manner
-* Performance regressions (if any) isolated and manageable
-* Improved visibility into query performance via Query Store
-
-This approach transforms SQL upgrades from a **high-risk event** into a **controlled operational process**.
+This transformed SQL Server upgrades from a high-risk maintenance event into a structured operational workflow.
 
 ---
 
-## 📌 Summary
+## Results
 
-A controlled SQL Server migration system using **phase separation, baseline validation, and incremental rollout**, enabling **low-risk upgrades and performance stability**.
+- Successfully upgraded SQL Server 2017 → 2022
+- Maintained platform stability during migration
+- Isolated optimizer-related changes from infrastructure changes
+- Improved visibility into workload behavior post-upgrade
+- Reduced risk associated with compatibility-level changes
+
+### Measurable Outcomes
+
+- No major production instability during engine upgrade
+- Incremental compatibility rollout reduced troubleshooting complexity
+- Query Store provided targeted regression visibility
+- Rollback capability significantly reduced operational risk
 
 ---
 
-## ✍️ Author Notes
+## Key Takeaways
 
-This migration strategy was developed to support real-world SQL Server upgrades where minimizing production risk and maintaining performance stability were critical.
-
-The full procedural runbook was designed as a reusable artifact and has been adapted here into a structured system for operational use and portfolio demonstration.
+- Infrastructure and query-processing changes should be treated separately
+- Query Store provides critical visibility during upgrade validation
+- Incremental rollout reduces migration risk significantly
+- Snapshot-based rollback planning improves operational confidence
+- Controlled migrations are operational processes, not single maintenance events
 
 ---
 
-## 📎 Source Documentation
+## Summary
 
-Derived from a reusable SQL Server migration runbook and real-world implementation.
+This effort established a controlled SQL Server migration strategy focused on:
 
-* [View Original PDF](../source/sql-migration-runbook.pdf)
+- Operational stability
+- Incremental change management
+- Performance visibility
+- Rollback safety
+- Workload-aware validation
+
+The result was a repeatable upgrade approach capable of reducing migration risk while improving post-upgrade observability and operational control.
