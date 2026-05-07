@@ -242,7 +242,7 @@ Node Exporter Full (ID: 1860)
 
 ## 📸 Live Metrics
 
-![Grafana Dashboard](../images/grafana-dashboard.png)
+![Grafana Dashboard](../../images/grafana-dashboard.png)
 
 ---
 
