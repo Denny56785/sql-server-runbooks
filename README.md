@@ -64,10 +64,10 @@ Designed and implemented a full infrastructure → deployment → monitoring →
 - Integrated multi-container workload deployment
 
 #### Related Lab Phases
-- [Phase 1 – Control Plane Setup](./docs/infrastructure-lab/phase-01-control-plane-setup.md)
-- [Phase 2 – Infrastructure Provisioning](./docs/infrastructure-lab/phase-02-terraform-infrastructure.md)
-- [Phase 3 – Configuration Management](./docs/infrastructure-lab/phase-03-ansible-configuration.md)
-- [Phase 4 – Workload, Monitoring & Automation](./docs/infrastructure-lab/phase-04-workload-monitoring-automation.md)
+- [Phase 1 – Control Plane Setup](./docs/case-studies/infrastructure-lab/phase-01-control-plane-setup.md)
+- [Phase 2 – Infrastructure Provisioning](./docs/case-studies/infrastructure-lab/phase-02-terraform-infrastructure.md)
+- [Phase 3 – Configuration Management](./docs/case-studies/infrastructure-lab/phase-03-ansible-configuration.md)
+- [Phase 4 – Workload, Monitoring & Automation](./docs/case-studies/infrastructure-lab/phase-04-workload-monitoring-automation.md)
 
 ---
 
