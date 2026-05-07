@@ -415,7 +415,7 @@ Azure VM and disk metrics were reviewed during the alert window.
 
 The Azure graphs did not show sustained IOPS or throughput saturation. Utilization remained low overall, with only brief spikes.
 
-![Azure disk utilization review](../images/azure-disk-utilization-review.png)
+![Azure disk utilization review](../../images/azure-disk-utilization-review.png)
 
 This was an important distinction:
 
