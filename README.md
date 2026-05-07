@@ -1,0 +1,249 @@
+# Infrastructure, Operations & Systems Engineering Portfolio
+
+> Technical Operations portfolio focused on infrastructure modernization, reliability engineering, observability, automation, and production system stability across cloud and on-prem environments.
+
+---
+
+## 👤 Author
+
+**Dennis Lubins**  
+Technical Operations Engineer
+
+---
+
+# 📌 Overview
+
+This repository showcases real-world infrastructure, operations, and reliability engineering case studies built from hands-on experience designing, stabilizing, monitoring, and modernizing production systems.
+
+The focus of this portfolio is not isolated technologies, but the operational systems and engineering approaches used to improve:
+
+- Reliability
+- Visibility
+- Performance
+- Automation
+- Operational consistency
+- Incident response
+- Infrastructure sustainability
+
+While SQL Server appears throughout several projects, it is presented as part of broader operational and platform engineering environments rather than as a standalone specialization.
+
+---
+
+# 🧠 Operational Philosophy
+
+→ [How I Approach Production Systems](./docs/00-operational-philosophy.md)
+
+This document outlines the operational mindset used throughout the projects in this portfolio:
+
+- Visibility → Understanding → Targeted Fixes → Monitoring
+- Systems thinking over reactive troubleshooting
+- Operationalization of solutions for long-term stability
+
+---
+
+# 🚀 Featured Case Studies
+
+## 🏗️ Infrastructure & Platform Engineering
+
+### 🧱 [Building an End-to-End Infrastructure, Deployment & Observability Lab on AWS](./docs/case-studies/infrastructure/aws-observability-lab.md)
+
+Designed and implemented a full infrastructure → deployment → monitoring → automation workflow using:
+
+- Terraform
+- Ansible
+- Docker
+- SQL Server
+- Prometheus
+- Grafana
+
+#### Highlights
+- Automated infrastructure provisioning
+- Configuration management with Ansible
+- Real-time observability pipeline
+- Automated SQL Server recovery workflow
+- Integrated multi-container workload deployment
+
+#### Related Lab Phases
+- [Phase 1 – Control Plane Setup](./docs/infrastructure-lab/phase-01-control-plane-setup.md)
+- [Phase 2 – Infrastructure Provisioning](./docs/infrastructure-lab/phase-02-terraform-infrastructure.md)
+- [Phase 3 – Configuration Management](./docs/infrastructure-lab/phase-03-ansible-configuration.md)
+- [Phase 4 – Workload, Monitoring & Automation](./docs/infrastructure-lab/phase-04-workload-monitoring-automation.md)
+
+---
+
+### 🖥️ [Enterprise Virtualization Migration & Infrastructure Modernization](./docs/case-studies/infrastructure/virtualization-modernization.md)
+
+Designed and executed a phased migration from legacy hyperconverged infrastructure to a modernized server platform.
+
+#### Highlights
+- Infrastructure modernization strategy
+- Phased workload migration
+- Risk-reduction planning
+- VMware operational management
+- Legacy infrastructure retirement
+
+---
+
+### 🚀 [SQL Server Migration Strategy & Execution System](./docs/case-studies/infrastructure/sql-server-migration-strategy.md)
+
+Developed a controlled SQL Server upgrade methodology separating engine-level changes from query-processing behavior changes.
+
+#### Highlights
+- Controlled SQL Server 2017 → 2022 upgrade strategy
+- Query Store-based validation
+- Incremental compatibility-level rollout
+- Snapshot-based rollback planning
+- Performance regression analysis
+
+---
+
+# 📡 Reliability Engineering & Observability
+
+### 🔥 [Reducing 2,000+ Daily SQL Server Deadlocks to Near Zero](./docs/case-studies/reliability/deadlock-reduction.md)
+
+Investigated and remediated systemic deadlock conditions across multiple production SQL Server environments.
+
+#### Highlights
+- Extended Events-based deadlock analysis
+- Index and statistics optimization
+- Workload conflict identification
+- Monitoring-driven remediation strategy
+- Long-term operational stabilization
+
+#### Results
+- Reduced ~2,000 daily deadlocks to near zero
+- Significant reduction in application failures and operational noise
+
+---
+
+### ⚙️ [Eliminating TempDB Latency Caused by Inefficient Statistics Maintenance](./docs/case-studies/reliability/tempdb-maintenance-optimization.md)
+
+Identified and resolved maintenance-driven TempDB contention caused by inefficient blanket statistics updates.
+
+#### Highlights
+- Workload-aware maintenance strategy
+- Heavy-table prioritization
+- Phased statistics maintenance model
+- Reduced maintenance overhead
+- Improved maintenance window stability
+
+---
+
+### 📊 [Diagnosing Burst-Induced SQL Server Disk Latency Without Increasing Infrastructure Cost](./docs/case-studies/reliability/burst-induced-disk-latency.md)
+
+Performed targeted interval-based analysis of transient SQL Server disk latency events on Azure-hosted infrastructure.
+
+#### Highlights
+- Short-interval workload capture
+- Azure metric correlation
+- Checkpoint / dirty-page flush analysis
+- Alert tuning and operational optimization
+- Monitoring refinement without infrastructure expansion
+
+---
+
+### 📬 [Building a SQL Server Alerting System Without Database Mail](./docs/case-studies/reliability/alerting-pipeline-modernization.md)
+
+Designed a queue-based alerting pipeline to replace unreliable SQL Server Database Mail workflows.
+
+#### Highlights
+- Decoupled alert processing architecture
+- Queue-based lifecycle tracking
+- PowerShell-driven delivery workflow
+- Improved operational visibility
+- Enhanced alert reliability and troubleshooting
+
+---
+
+# ☁️ Cloud Security & Automation
+
+### 🛡️ [Cloud-Based Malware Detection & Secure File Processing Pipeline](./docs/case-studies/cloud-security/azure-malware-detection-pipeline.md)
+
+Designed and implemented a cloud-native malware scanning and secure file-processing workflow on Azure.
+
+#### Highlights
+- Container-based malware scanning
+- Serverless workflow integration
+- Automated response pipeline
+- Real-time detection and alerting
+- Cloud platform operationalization
+
+---
+
+# 🛠️ Core Focus Areas
+
+- Infrastructure Modernization
+- Reliability Engineering
+- Monitoring & Observability
+- Incident Response & Root Cause Analysis
+- Cloud Operations
+- Automation & Operational Workflows
+- Platform Stability & Performance
+- Controlled Change Management
+
+---
+
+# ⚙️ Technologies & Platforms
+
+## 🏗️ Infrastructure & Cloud
+- AWS
+- Microsoft Azure
+- VMware
+- Dell PowerEdge
+- Hyperconverged Infrastructure
+
+## 🤖 Automation & Configuration
+- Terraform
+- Ansible
+- PowerShell
+
+## 📈 Monitoring & Observability
+- Grafana
+- Prometheus
+- SQL Server Extended Events
+
+## 🗄️ Data Platforms
+- SQL Server
+- Query Store
+
+## 📦 Workload & Containerization
+- Docker
+- Docker Compose
+
+---
+
+# 📂 Repository Structure
+
+```text
+docs/
+├── 00-operational-philosophy.md
+│
+├── case-studies/
+│   ├── infrastructure/
+│   ├── reliability/
+│   └── cloud-security/
+│
+├── infrastructure-lab/
+│
+└── images/
+```
+
+---
+
+# ⚠️ Notes
+
+- All environments and examples have been anonymized
+- Documentation focuses on operational methodology and engineering approach
+- Case studies are generalized from real-world production experience
+
+---
+
+# 📬 Contact
+
+LinkedIn: https://www.linkedin.com/in/dennis-lubins-25372a356
+
+---
+
+# 📄 License
+
+This repository is licensed under the MIT License.
