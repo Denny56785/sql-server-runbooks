@@ -186,13 +186,15 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 # 🛠️ Core Focus Areas
 
 - Infrastructure Modernization
+- Deployment Automation & CI/CD Operationalization
 - Reliability Engineering
 - Monitoring & Observability
 - Incident Response & Root Cause Analysis
-- Cloud Operations
+- Production Systems Engineering
+- Cloud Operations & Hybrid Infrastructure
 - Automation & Operational Workflows
 - Platform Stability & Performance
-- Controlled Change Management
+- Disaster Recovery & Controlled Change Management
 
 ---
 
@@ -204,24 +206,36 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - VMware
 - Dell PowerEdge
 - Hyperconverged Infrastructure
+- Windows Server
 
-## 🤖 Automation & Configuration
+## 🤖 Automation & Deployment
+- PowerShell
 - Terraform
 - Ansible
-- PowerShell
+- TeamCity
+- Octopus Deploy
 
 ## 📈 Monitoring & Observability
 - Grafana
 - Prometheus
 - SQL Server Extended Events
 
-## 🗄️ Data Platforms
+## 🗄️ Data & Reporting Platforms
 - SQL Server
+- SSRS
 - Query Store
 
 ## 📦 Workload & Containerization
 - Docker
 - Docker Compose
+- Citrix
+
+## 🔧 Operational Practices
+- Infrastructure Modernization
+- CI/CD Operationalization
+- Root Cause Analysis
+- Incident Response
+- Disaster Recovery Planning
 
 ---
 
