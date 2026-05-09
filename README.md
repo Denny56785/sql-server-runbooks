@@ -71,6 +71,19 @@ Designed and implemented a full infrastructure → deployment → monitoring →
 
 ---
 
+### ⚙️ [Legacy Deployment Automation & SSRS Modernization](./docs/case-studies/infrastructure/legacy-deployment-modernization.md)
+
+Modernized and automated a heavily manual enterprise deployment environment supporting web applications, Citrix-hosted client platforms, and SSRS reporting infrastructure.
+
+#### Highlights
+- Reduced deployment windows from ~90 minutes to ~15 minutes
+- Engineered custom SSRS deployment automation framework
+- Automated deployments using TeamCity, Octopus Deploy, and PowerShell
+- Eliminated manual deployment processes across all environments
+- Migrated legacy Windows Server 2008 / SSRS platforms to 2019
+
+---
+
 ### 🖥️ [Enterprise Virtualization Migration & Infrastructure Modernization](./docs/case-studies/infrastructure/virtualization-modernization.md)
 
 Designed and executed a phased migration from legacy hyperconverged infrastructure to a modernized server platform.
