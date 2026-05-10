@@ -71,6 +71,20 @@ Designed and implemented a full infrastructure → deployment → monitoring →
 
 ---
 
+### 💾 [AWS S3 Backup Architecture & Lifecycle Management](./docs/case-studies/infrastructure/aws-s3-backup-architecture-lifecycle-management.md)
+
+Designed and implemented a secure, cost-optimized AWS-based backup architecture supporting long-term archival retention, lifecycle management, operational monitoring, and Linux-native automation workflows.
+
+#### Highlights
+- Multi-tier S3 + Glacier storage lifecycle strategy
+- IAM least-privilege access controls
+- AWS Budgets and Cost Anomaly Detection monitoring
+- Linux-based rclone automation workflows
+- Encrypted offsite backup architecture
+- Operational governance and cost optimization design
+
+---
+
 ### ⚙️ [Legacy Deployment Automation & SSRS Modernization](./docs/case-studies/infrastructure/legacy-deployment-modernization.md)
 
 Modernized and automated a heavily manual enterprise deployment environment supporting web applications, Citrix-hosted client platforms, and SSRS reporting infrastructure.
@@ -193,6 +207,7 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Production Systems Engineering
 - Cloud Operations & Hybrid Infrastructure
 - Automation & Operational Workflows
+- Storage & Data Protection Architecture
 - Platform Stability & Performance
 - Disaster Recovery & Controlled Change Management
 
@@ -201,7 +216,7 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 # ⚙️ Technologies & Platforms
 
 ## 🏗️ Infrastructure & Cloud
-- AWS
+- AWS (EC2, S3, IAM, SNS, Budgets, Cost Anomaly Detection)
 - Microsoft Azure
 - VMware
 - Dell PowerEdge
@@ -225,10 +240,17 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - SSRS
 - Query Store
 
+## 💾 Storage & Backup
+- Amazon S3
+- S3 Glacier Flexible Retrieval
+- S3 Glacier Deep Archive
+- rclone
+
 ## 📦 Workload & Containerization
 - Docker
 - Docker Compose
 - Citrix
+- Distrobox
 
 ## 🔧 Operational Practices
 - Infrastructure Modernization
