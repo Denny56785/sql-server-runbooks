@@ -98,6 +98,20 @@ Modernized and automated a heavily manual enterprise deployment environment supp
 
 ---
 
+### 📋 [Enterprise Deployment Governance & Operational Standardization](./docs/case-studies/infrastructure/enterprise-deployment-governance.md)
+
+Designed and operationalized a centralized enterprise deployment governance framework supporting SOC-compliant production change management, rollback coordination, deployment communication, and cross-functional operational standardization.
+
+#### Highlights
+- Centralized fragmented deployment procedures into a unified Confluence operational hub
+- Standardized deployment governance and communication workflows
+- Coordinated production deployment and rollback operations across multiple technical teams
+- Developed scalable onboarding and operational training frameworks
+- Automated deployment tracking and communication workflows using SQL-driven reporting integrations
+- Trained and mentored engineers on enterprise deployment coordination processes
+
+---
+
 ### 🖥️ [Enterprise Virtualization Migration & Infrastructure Modernization](./docs/case-studies/infrastructure/virtualization-modernization.md)
 
 Designed and executed a phased migration from legacy hyperconverged infrastructure to a modernized server platform.
@@ -210,6 +224,10 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Storage & Data Protection Architecture
 - Platform Stability & Performance
 - Disaster Recovery & Controlled Change Management
+- Deployment Governance & Operational Standardization
+- Change Management & Release Coordination
+- Knowledge Management & Operational Enablement
+- Cross-Functional Technical Operations
 
 ---
 
@@ -229,6 +247,7 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Ansible
 - TeamCity
 - Octopus Deploy
+- Confluence
 
 ## 📈 Monitoring & Observability
 - Grafana
@@ -258,6 +277,11 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Root Cause Analysis
 - Incident Response
 - Disaster Recovery Planning
+- Deployment Governance
+- Production Change Management
+- Operational Documentation Systems
+- Rollback Coordination
+- Technical Training & Enablement
 
 ---
 
