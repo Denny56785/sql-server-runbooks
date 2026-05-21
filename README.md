@@ -196,6 +196,21 @@ Designed a queue-based alerting pipeline to replace unreliable SQL Server Databa
 
 ---
 
+### 🛡️ [Azure SQL Backup Observability & Operational Recovery Framework](./docs/case-studies/reliability/azure-sql-backup-observability-framework.md)
+
+Designed and operationalized a multi-layer Azure SQL backup observability and response framework supporting production SQL Server workloads hosted in Azure.
+
+#### Highlights
+- Built Azure Backup + SQL monitoring operational framework
+- Developed centralized SSRS backup observability dashboard
+- Implemented cadence-based SQL monitoring and alerting
+- Identified cross-server non-copy-only backup chain interference
+- Discovered silent Database Mail notification failure
+- Standardized Azure Backup incident response runbooks
+- Separated alerting, monitoring, observability, and response responsibilities
+
+---
+
 # ☁️ Cloud Security & Automation
 
 ### 🛡️ [Cloud-Based Malware Detection & Secure File Processing Pipeline](./docs/case-studies/cloud-security/azure-malware-detection-pipeline.md)
@@ -228,6 +243,9 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Change Management & Release Coordination
 - Knowledge Management & Operational Enablement
 - Cross-Functional Technical Operations
+- Backup Observability & Operational Resilience
+- Operational Monitoring Architecture
+- Reliability & Recovery Engineering
 
 ---
 
@@ -240,6 +258,7 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Dell PowerEdge
 - Hyperconverged Infrastructure
 - Windows Server
+- Azure Recovery Services Vault
 
 ## 🤖 Automation & Deployment
 - PowerShell
@@ -253,6 +272,9 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Grafana
 - Prometheus
 - SQL Server Extended Events
+- Azure Backup
+- SQL Server Database Mail
+- SQL Server Reporting Services (SSRS)
 
 ## 🗄️ Data & Reporting Platforms
 - SQL Server
@@ -282,6 +304,9 @@ Designed and implemented a cloud-native malware scanning and secure file-process
 - Operational Documentation Systems
 - Rollback Coordination
 - Technical Training & Enablement
+- Backup Observability
+- Operational Runbook Engineering
+- Incident Workflow Standardization
 
 ---
 
