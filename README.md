@@ -1,13 +1,13 @@
-# Infrastructure, Operations & Systems Engineering Portfolio
+# Operations Reliability Engineering Portfolio
 
-> Technical Operations portfolio focused on infrastructure modernization, reliability engineering, observability, automation, and production system stability across cloud and on-prem environments.
+> Portfolio focused on production reliability, operational resilience, automation, and infrastructure modernization across cloud and on-prem environments.
 
 ---
 
 ## 👤 Author
 
 **Dennis Lubins**  
-Technical Operations Engineer
+Operations Reliability Engineer (SRE)
 
 ---
 
