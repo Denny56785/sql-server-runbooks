@@ -135,9 +135,9 @@ SQL Server Agent Alert Response Guide
 Daily deadlocks were reduced from routinely hundreds per day (with peaks exceeding 3,400) to a low operational baseline through a combination of monitoring, analysis, and remediation efforts.
 ![Total Deadlock Counts](../../images/deadlock_trend_full.png)
 
-#### Figure 2 - Post-Remediation Stability
+#### Figure 2 - Post-Remediation Activity (Zoomed View)
 
-Following remediation, deadlocks generally remained between 0–5 per day, with occasional isolated spikes. Importantly, no sustained regression to pre-remediation levels occurred during the observation period.
+Following remediation, deadlocks were typically observed in the single digits, with occasional isolated spikes. No sustained return to historical deadlock levels was observed during the observation period.
 ![Zoomed Deadlock Counts](../../images/deadlock_trend_zoomed.png)
 
 ---
