@@ -128,6 +128,9 @@ SQL Server Agent Alert Response Guide
 - Faster incident response
 - Reduced reactive workload for support teams
 
+### Resulting Metrics
+![Deadlock Counts](../../images/deadlock_trend_full.png)
+
 ---
 
 ## Key Takeaways
